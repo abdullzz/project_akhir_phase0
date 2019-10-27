@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <title>Keyboardless Calculator</title>
+  <script src="script.js"></script>
 </head>
 <body>
   <header id="main-header" class="text-white p-4 mb-3 title">
@@ -17,40 +18,38 @@
   <div class="container">
    <div id="main" class="card card-body">
     <div class="calculator">
-        <button id="clear" class="clear" onclick="clear()">C</button>
+        <button id="hapus" class="clear" onclick="clears()">C</button>
       
         <div id="display" class="display">0</div>
-      
         <button class="num" id="7" onclick="add(this.id)">7</button>
         <button class="num" id="8" onclick="add(this.id)">8</button>
         <button class="num" id="9" onclick="add(this.id)">9</button>
-        <button data-ops="plus" class="ops">+</button>
+        <button data-ops="plus" class="ops" onclick="calc('+')">+</button>
       
-        <button class="num" id="4" onclick="add(this.id)">4</button>
-        <button class="num" id="5" onclick="add(this.id)">5</button>
-        <button class="num" id="6" onclick="add(this.id)">6</button>
-        <button data-ops="minus" class="ops">-</button>
+        <button class="num" id="4" onclick="calc(this.id)">4</button>
+        <button class="num" id="5" onclick="calc(this.id)">5</button>
+        <button class="num" id="6" onclick="calc(this.id)">6</button>
+        <button data-ops="minus" class="ops" onclick="calc('-')">-</button>
       
-        <button class="num" id="1" onclick="add(this.id)">1</button>
-        <button class="num" id="2" onclick="add(this.id)">2</button>
-        <button class="num" id="3" onclick="add(this.id)">3</button>
+        <button class="num" id="1" onclick="calc(this.id)">1</button>
+        <button class="num" id="2" onclick="calc(this.id)">2</button>
+        <button class="num" id="3" onclick="calc(this.id)">3</button>
         <button data-ops="times" class="ops">*</button>
       
-        <button class="num" id="0" onclick="add(this.id)">0</button>
-        <button class="num" id="." onclick="add(this.id)">.</button>
-        <button id="equals" class="equals" data-result="" onclick="result()">=</button>
+        <button class="num" id="0" onclick="calc(this.id)">0</button>
+        <button class="num" id="." onclick="calc(this.id)">.</button>
+        <button id="equals" class="equals" data-result="" onclick="calc('r')">=</button>
         <button data-ops="divided by" class="ops">/</button>
       </div>
    </div>
    <div id="theme" class="card card-body theme">
     
-    <h6>Change Theme : </h3>
+    <h6>Change Theme : </h6>
         <button class="theme_button dark" onclick="change_theme('black')">Dark</button>
         <button class="theme_button red" onclick="change_theme('red')">Red</button>
         <button class="theme_button blue" onclick="change_theme('#6cacc5')">Blue</button>
    </div>
   </div>
 
-  <script src="script.js"></script>
 </body>
 </html>

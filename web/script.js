@@ -12,21 +12,65 @@ function change_theme(colors)
     document.getElementsByClassName('title')[0].style.background = colors
 }
 
-var temp = []
+let sum = 0
+let number1 = 0
+let number2 = 0
+let waiting = false
+let arr = []
 
-function add(number)
+function calc(input)
 {
-    temp.push(number)
-    document.getElementsByClassName('display')[0].innerHTML = temp.join('')
+    if(input == 'r')
+    {
+        document.getElementsByClassName('display')[0].innerHTML = sum
+        number1 = sum
+        number2 = 0
+        arr = []
+    }
+    else if(waiting)
+    {
+        if(!isNumber(input))
+        {
+            number2 = parseInt(arr.join('')); 
+            arr = [];
+            sum += number1 + number2; 
+            number1 = 0; number2 = 0
+            document.getElementsByClassName('display')[0].innerHTML = sum
+        }
+        else
+        {
+            arr.push(input)
+            document.getElementsByClassName('display')[0].innerHTML = arr.join('')
+        }
+    }
+    else
+    {
+        if(!isNumber(input))
+        {
+            waiting = true;
+            number1 = parseInt(arr.join(''))
+            arr = []
+        }
+        else
+        {
+            arr.push(input)
+            document.getElementsByClassName('display')[0].innerHTML = arr.join('')
+        }
+    }
 }
 
-function clear()
+function isNumber(x)
 {
-    temp = []
-    document.getElementsByClassName('display')[0].innerHTML = '0'
+    if(x >= '0' && x <= '9'){return true}
+    return false
 }
 
-function result()
+function clears()
 {
-    console.log(temp)
+    sum = 0
+    number1 = 0
+    number2 = 0
+    waiting = false
+    arr = []
+    document.getElementsByClassName('display')[0].innerHTML = "0"
 }
